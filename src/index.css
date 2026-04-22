@@ -1,21 +1,61 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
-@theme {
-  --color-primary: #f00000; /* Energetic red */
+:root {
+  --color-primary: #f00000;
   --color-primary-dark: #cc0000;
-  --color-background: #000000; /* Pure black */
+  --color-background: #000000;
   --color-surface: #0a0a0a;
   --color-surface-hover: #141414;
-  --font-sans: "Inter", "system-ui", "sans-serif";
-  --font-display: "Outfit", "system-ui", "sans-serif";
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #9ca3af;
+  --font-sans: "Tenor Sans", "system-ui", "sans-serif";
+  --font-display: "Tenor Sans", "system-ui", "sans-serif";
+}
+
+.light {
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f1f3f5;
+  --color-primary: #f00000;
+  --color-primary-dark: #cc0000;
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-foreground: var(--color-text-primary);
+  --color-muted: var(--color-text-secondary);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
 }
 
 @layer base {
   body {
     @apply bg-background text-gray-200 font-sans antialiased selection:bg-primary selection:text-white;
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
+  
+  .light body {
+    color: #1a1a1a;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-bold text-gray-100;
+    transition: color 0.5s ease;
+  }
+
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    color: #111827 !important;
+  }
+
+  .light p, .light span:not([class*="text-primary"]) {
+    color: #374151 !important;
   }
 
   /* Custom Scrollbar */
@@ -24,7 +64,7 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-background border-l border-white/5;
+    @apply bg-background;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-surface-hover rounded-full;
@@ -32,13 +72,62 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary;
   }
+
+  /* Placeholder Styling */
+  ::placeholder {
+    color: var(--color-text-secondary);
+    opacity: 0.7;
+  }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-br from-white to-primary;
+  .liquid-glass {
+    @apply backdrop-blur-3xl border border-white/10;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    box-shadow: 
+      inset 0 1px 1px rgba(255, 255, 255, 0.1),
+      0 4px 24px -1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
   }
-  .glass {
-    @apply bg-surface/70 backdrop-blur-md border border-white/5;
+
+  .light .liquid-glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 
+      0 4px 24px -1px rgba(0, 0, 0, 0.05);
+  }
+
+  .liquid-glass:not(.fixed):not(.absolute) {
+    position: relative;
+  }
+
+  .liquid-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 45%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 55%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .group:hover .liquid-glass::before {
+    transform: translateX(100%);
   }
 }

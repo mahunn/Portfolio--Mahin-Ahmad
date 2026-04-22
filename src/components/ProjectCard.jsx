@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react';
 
 const ProjectCard = ({ title, description, link, tags, image }) => {
   return (
-    <div className="group relative rounded-2xl overflow-hidden bg-surface border border-white/5 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(240,0,0,0.15)] flex flex-col h-full">
+    <div className="group relative rounded-2xl overflow-hidden liquid-glass border border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] flex flex-col h-full">
       {/* Image Container / Placeholder */}
       <div className="w-full h-48 bg-black/50 relative overflow-hidden flex items-center justify-center border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60 z-10"></div>
@@ -14,12 +14,12 @@ const ProjectCard = ({ title, description, link, tags, image }) => {
         )}
         
         {/* Overlay on hover */}
-        <div className="absolute inset-0 bg-primary/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
       </div>
 
       {/* Content Container */}
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-2xl font-bold text-gray-100 mb-3 group-hover:text-primary transition-colors">{title}</h3>
+        <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">{title}</h3>
         <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">
           {description}
         </p>
@@ -27,7 +27,7 @@ const ProjectCard = ({ title, description, link, tags, image }) => {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-6">
           {tags.map((tag, index) => (
-            <span key={index} className="text-xs font-mono text-primary/80 bg-primary/10 px-2 py-1 rounded">
+            <span key={index} className="text-[10px] font-mono text-muted bg-white/5 px-2 py-1 rounded-md border border-white/5">
               {tag}
             </span>
           ))}
@@ -39,13 +39,13 @@ const ProjectCard = ({ title, description, link, tags, image }) => {
             href={link} 
             target="_blank" 
             rel="noreferrer"
-            className="flex items-center gap-2 text-sm font-medium text-white hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
             <ExternalLink size={16} /> Live Demo
           </a>
           <a 
             href="#" 
-            className="flex items-center gap-2 text-sm font-medium text-gray-400 hover:text-white transition-colors ml-auto"
+            className="flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground transition-colors ml-auto"
             title="Source code link if available"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -55,9 +55,7 @@ const ProjectCard = ({ title, description, link, tags, image }) => {
         </div>
       </div>
       
-      {/* Corner Tech Accents */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-primary/0 group-hover:border-primary/50 transition-colors duration-500 rounded-tl-2xl"></div>
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-primary/0 group-hover:border-primary/50 transition-colors duration-500 rounded-br-2xl"></div>
+
     </div>
   );
 };

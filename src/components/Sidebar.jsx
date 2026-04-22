@@ -1,83 +1,110 @@
-import React from 'react';
-import { Home, User, Briefcase, Code, Mail } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Home, User, Code, Mail, Phone, Menu, X, Sun, Moon } from 'lucide-react';
 
-const Sidebar = () => {
-  const navItems = [
-    { label: 'Home', href: '#home', icon: <Home size={20} /> },
-    { label: 'About', href: '#about', icon: <User size={20} /> },
-    { label: 'Projects', href: '#projects', icon: <Code size={20} /> },
-    { label: 'Experience', href: '#experience', icon: <Briefcase size={20} /> },
-    { label: 'Contact', href: '#contact', icon: <Mail size={20} /> },
-  ];
+/* ── Logo Component ── */
+const LogoMark = ({ full = false }) => (
+  <motion.div
+    className="relative flex items-center justify-center select-none"
+    initial={{ opacity: 0, x: -10 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6 }}
+  >
+    <span
+      className={`font-display font-bold ${full ? 'text-lg md:text-xl tracking-[0.12em]' : 'text-2xl'}`}
+      style={{
+        background: `linear-gradient(135deg, var(--color-text-primary) 30%, var(--color-primary))`,
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}
+    >
+      {full ? 'Mahin.' : 'M.'}
+    </span>
+  </motion.div>
+);
 
-  const socialLinks = [
-    { 
-      label: 'GitHub', 
-      href: 'https://github.com/mahunn', 
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-        </svg>
-      ) 
-    },
-    { 
-      label: 'LinkedIn', 
-      href: 'https://www.linkedin.com/in/mahun/', 
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect x="2" y="9" width="4" height="12"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
-        </svg>
-      ) 
-    },
-    {
-      label: 'Facebook',
-      href: 'https://www.facebook.com/mahunnn',
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-        </svg>
-      )
-    }
-  ];
+const navItems = [
+  { label: 'Home',       href: '#home',       icon: <Home       size={18} /> },
+  { label: 'About',      href: '#about',      icon: <User       size={18} /> },
+  { label: 'Projects',   href: '#projects',   icon: <Code       size={18} /> },
+  { label: 'Contact',    href: '#contact',    icon: <Mail       size={18} /> },
+  { label: 'Call',       href: 'tel:+8801828034555', icon: <Phone      size={18} /> },
+];
+
+const Sidebar = ({ theme, toggleTheme }) => {
+  const [scrolled, setScrolled] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <aside className="fixed top-0 left-0 w-full md:w-[80px] lg:w-[280px] h-[60px] md:h-screen flex md:flex-col justify-between items-center md:items-stretch py-0 px-4 md:py-8 md:px-6 border-b md:border-b-0 md:border-r border-gray-800 bg-surface/90 backdrop-blur-md z-50 transition-all duration-300">
-      <div className="font-display font-bold text-xl text-center md:mb-12">
-        <span className="hidden lg:block text-gradient">Mahin.</span>
-        <span className="block lg:hidden text-gradient text-2xl">M.</span>
-      </div>
-      
-      <nav className="hidden md:flex flex-col gap-4">
-        {navItems.map((item) => (
-          <a 
-            key={item.label} 
-            href={item.href} 
-            className="group flex items-center justify-center lg:justify-start gap-4 p-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary/10 hover:border-l-2 hover:border-primary hover:translate-x-1 transition-all duration-300"
-            title={item.label}
-          >
-            <span className="flex items-center justify-center text-primary/80 group-hover:text-primary group-hover:drop-shadow-[0_0_8px_rgba(240,0,0,0.8)] transition-all">{item.icon}</span>
-            <span className="hidden lg:block font-medium tracking-wide">{item.label}</span>
-          </a>
-        ))}
-      </nav>
+    <header 
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-4 md:px-12
+        ${scrolled 
+          ? 'py-3 bg-transparent pointer-events-none' 
+          : 'py-6 bg-transparent pointer-events-none'
+        }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 pointer-events-auto relative">
+        {/* Logo */}
+        <a href="#home" className="shrink-0 hover:scale-105 transition-transform duration-300 relative z-10">
+          <LogoMark full={true} />
+        </a>
 
-      <div className="flex md:flex-col lg:flex-row justify-center gap-4 mt-auto">
-        {socialLinks.map((item) => (
-          <a 
-            key={item.label} 
-            href={item.href} 
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-surface text-primary border border-primary/30 hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(240,0,0,0.6)] transition-all duration-300"
-            target="_blank" 
-            rel="noreferrer"
-            title={item.label}
+        {/* Navigation - Adaptive */}
+        <div className="absolute left-1/2 -translate-x-1/2 z-10">
+          <nav 
+            className="flex items-center gap-1 md:gap-2 p-1 liquid-glass rounded-full border border-white/5"
+            onMouseLeave={() => setHoveredItem(null)}
           >
-            {item.icon}
-          </a>
-        ))}
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                onMouseEnter={() => setHoveredItem(item.label)}
+                className="px-3 py-2 md:px-4 md:py-2 rounded-full text-sm font-medium text-muted hover:text-foreground transition-all duration-300 relative group flex items-center gap-2"
+                title={item.label}
+              >
+                <span className="relative z-10 md:hidden">{item.icon}</span>
+                <span className="relative z-10 hidden md:block">{item.label}</span>
+                
+                {hoveredItem === item.label && (
+                  <motion.div
+                    layoutId="nav-hover"
+                    className="absolute inset-0 bg-foreground/10 backdrop-blur-xl rounded-full z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 350,
+                      damping: 25,
+                    }}
+                  />
+                )}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Right side: Toggle */}
+        <div className="flex items-center shrink-0 relative z-10">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full liquid-glass border border-white/10 text-muted hover:text-foreground transition-all duration-300"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+        </div>
       </div>
-    </aside>
+    </header>
   );
 };
 
