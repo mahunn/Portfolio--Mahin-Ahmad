@@ -54,8 +54,13 @@
     color: #111827 !important;
   }
 
-  .light p, .light span:not([class*="text-primary"]) {
+  .light p, .light span:not([class*="text-primary"]):not(button span):not(button *) {
     color: #374151 !important;
+  }
+
+  .light button span,
+  .light button {
+    color: #ffffff !important;
   }
 
   /* Custom Scrollbar */
