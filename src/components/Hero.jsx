@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const socialLinks = [
   {
     label: 'GitHub',
-    href: 'https://github.com/mahinahmad',
+    href: 'https://github.com/mahunn',
     hoverClass: 'hover:text-foreground hover:border-white/30 hover:shadow-white/10',
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
@@ -14,7 +14,7 @@ const socialLinks = [
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/mahinahmad',
+    href: 'https://linkedin.com/in/mahun',
     hoverClass: 'hover:text-[#0A66C2] hover:border-[#0A66C2]/40 hover:shadow-[#0A66C2]/20',
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
@@ -24,7 +24,7 @@ const socialLinks = [
   },
   {
     label: 'Facebook',
-    href: 'https://facebook.com/mahinahmad',
+    href: 'https://www.facebook.com/mahunnn',
     hoverClass: 'hover:text-[#1877F2] hover:border-[#1877F2]/40 hover:shadow-[#1877F2]/20',
     icon: (
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
