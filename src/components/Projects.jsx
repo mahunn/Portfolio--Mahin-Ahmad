@@ -38,7 +38,7 @@ const Projects = () => {
 
       {/* ── Flagship Project ── */}
       <a
-        href="https://henley-zone.vercel.app"
+        href="https://henleyzone.com"
         target="_blank"
         rel="noreferrer"
         className="group block mb-16 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -100,7 +100,7 @@ const Projects = () => {
                 <span className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary/90 group-hover:bg-primary px-5 py-2.5 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(240,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(240,0,0,0.5)]">
                   <ExternalLink size={15} /> View Live Site
                 </span>
-                <span className="text-gray-500 text-sm font-mono">henley-zone.vercel.app</span>
+                <span className="text-gray-500 text-sm font-mono">henleyzone.com</span>
               </div>
 
               {/* Animated arrow */}
