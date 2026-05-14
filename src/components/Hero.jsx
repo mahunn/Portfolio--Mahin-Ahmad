@@ -150,7 +150,7 @@ const Hero = () => {
                 href="https://glamora-beige.vercel.app/" 
                 target="_blank" 
                 rel="noreferrer"
-                className="absolute top-4 sm:top-0 left-0 w-[80%] sm:w-[75%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/5 liquid-glass p-1 sm:p-2 z-10 opacity-80 blur-[1px] hover:blur-none hover:z-40 hover:opacity-100 hover:scale-105 active:z-40 active:scale-105 transition-all duration-500 cursor-pointer"
+                className="absolute top-4 sm:top-0 left-0 w-[80%] sm:w-[75%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/5 liquid-glass p-1 sm:p-2 z-10 opacity-80 blur-[1px] hover:blur-none hover:z-40 hover:opacity-100 hover:scale-105 active:z-40 active:scale-105 transition-all duration-500 cursor-pointer animate-mobile-back sm:animate-none"
               >
                 <img
                   src="/glamora_preview.png"
@@ -165,7 +165,7 @@ const Hero = () => {
                 href="https://henleyzone.com" 
                 target="_blank" 
                 rel="noreferrer"
-                className="absolute bottom-4 sm:bottom-0 right-0 w-[85%] sm:w-[80%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 liquid-glass p-1 sm:p-2 z-20 hover:scale-105 hover:z-40 active:scale-105 transition-all duration-500 cursor-pointer"
+                className="absolute bottom-4 sm:bottom-0 right-0 w-[85%] sm:w-[80%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 liquid-glass p-1 sm:p-2 z-20 hover:scale-105 hover:z-40 active:scale-105 transition-all duration-500 cursor-pointer animate-mobile-front sm:animate-none"
               >
                 <img
                   src="/henley_zone_preview.png"

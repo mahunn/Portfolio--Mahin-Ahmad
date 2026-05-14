@@ -138,4 +138,25 @@
   .group:hover .liquid-glass::before {
     transform: translateX(100%);
   }
+
+  @keyframes mobile-focus-back {
+    0%, 45% { z-index: 10; filter: blur(2px); opacity: 0.8; transform: scale(1); }
+    50%, 95% { z-index: 40; filter: blur(0px); opacity: 1; transform: scale(1.05); }
+    100% { z-index: 10; filter: blur(2px); opacity: 0.8; transform: scale(1); }
+  }
+
+  @keyframes mobile-focus-front {
+    0%, 45% { z-index: 40; filter: blur(0px); opacity: 1; transform: scale(1.05); }
+    50%, 95% { z-index: 10; filter: blur(2px); opacity: 0.8; transform: scale(1); }
+    100% { z-index: 40; filter: blur(0px); opacity: 1; transform: scale(1.05); }
+  }
+
+  @media (max-width: 640px) {
+    .animate-mobile-back {
+      animation: mobile-focus-back 4s infinite;
+    }
+    .animate-mobile-front {
+      animation: mobile-focus-front 4s infinite;
+    }
+  }
 }
