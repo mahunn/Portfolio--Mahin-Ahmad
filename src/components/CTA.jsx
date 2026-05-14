@@ -36,7 +36,7 @@ const CTA = () => {
           transition={{ delay: 0.2 }}
         >
           <a 
-            href="mailto:mahinahmad@example.com" 
+            href="https://wa.me/8801828034555?text=Hi%20Mahin%2C%20are%20you%20available%20right%20now%20to%20talk%3F" 
             className="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-full font-display font-bold text-lg hover:bg-primary/90 transition-all duration-300 shadow-[0_0_30px_rgba(240,0,0,0.3)] hover:shadow-[0_0_50px_rgba(240,0,0,0.5)] hover:-translate-y-1"
           >
             Book a Strategy Call <ArrowRight className="w-5 h-5" />

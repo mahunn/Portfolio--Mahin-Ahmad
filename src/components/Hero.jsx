@@ -82,7 +82,7 @@ const Hero = () => {
             <a href="#projects" className="bg-primary text-white text-center hover:bg-primary-dark px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(240,0,0,0.3)] hover:shadow-[0_0_50px_rgba(240,0,0,0.5)] hover:-translate-y-1">
               View Projects
             </a>
-            <a href="#contact" className="liquid-glass border border-white/10 text-center text-foreground hover:bg-white/5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 hover:-translate-y-1">
+            <a href="https://wa.me/8801828034555?text=Hi%20Mahin%2C%20are%20you%20available%20right%20now%20to%20talk%3F" className="liquid-glass border border-white/10 text-center text-foreground hover:bg-white/5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 hover:-translate-y-1">
               Book a Call
             </a>
           </motion.div>

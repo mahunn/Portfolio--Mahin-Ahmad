@@ -4,7 +4,6 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Services from './components/Services';
-import BeforeAfter from './components/BeforeAfter';
 import Performance from './components/Performance';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
@@ -26,7 +25,6 @@ function App() {
       <main className="flex-1 w-full px-6 sm:px-12 md:px-24 lg:px-32 transition-all duration-300 mx-auto max-w-[1920px]">
         <Hero />
         <Services />
-        <BeforeAfter />
         <Projects />
         <Performance />
         <Testimonials />
