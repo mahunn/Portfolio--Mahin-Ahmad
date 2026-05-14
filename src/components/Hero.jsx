@@ -49,7 +49,11 @@ const Hero = () => {
           >
             <img src="/profile.jpg" alt="Mahin Ahmad" className="w-12 h-12 rounded-full border border-primary/50 object-cover" />
             <p className="text-primary font-mono text-sm md:text-base tracking-[0.2em] uppercase font-bold flex items-center gap-4">
-              <span className="w-12 h-[2px] bg-primary hidden sm:block"></span> Premium Web Studio
+              <span className="w-12 h-[2px] bg-primary hidden sm:block"></span> 
+              <span className="flex items-center gap-2">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                Web Developer
+              </span>
             </p>
           </motion.div>
 

@@ -27,8 +27,7 @@ const navItems = [
   { label: 'Home',       href: '#home',       icon: <Home       size={18} /> },
   { label: 'About',      href: '#about',      icon: <User       size={18} /> },
   { label: 'Projects',   href: '#projects',   icon: <Code       size={18} /> },
-  { label: 'Contact',    href: '#contact',    icon: <Mail       size={18} /> },
-  { label: 'Call',       href: 'tel:+8801828034555', icon: <Phone      size={18} /> },
+  { label: 'Contact',    href: '#cta',       icon: <Mail       size={18} /> },
 ];
 
 const Sidebar = ({ theme, toggleTheme }) => {
