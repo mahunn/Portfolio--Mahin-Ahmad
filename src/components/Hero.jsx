@@ -36,46 +36,40 @@ const socialLinks = [
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-24 lg:pt-0 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center pt-36 lg:pt-32 pb-16 overflow-hidden">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Text Content */}
-        <div className="max-w-3xl order-2 lg:order-1 px-2">
-          <motion.p
+        <div className="max-w-4xl order-2 lg:order-1 px-2 z-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-primary font-mono mb-4 text-base tracking-widest uppercase"
+            className="flex items-center gap-4 mb-6"
           >
-            Web Developer.
-          </motion.p>
+            <img src="/profile.jpg" alt="Mahin Ahmad" className="w-12 h-12 rounded-full border border-primary/50 object-cover" />
+            <p className="text-primary font-mono text-sm md:text-base tracking-[0.2em] uppercase font-bold flex items-center gap-4">
+              <span className="w-12 h-[2px] bg-primary hidden sm:block"></span> Premium Web Studio
+            </p>
+          </motion.div>
 
-          {/* H1 — name is the primary heading for SEO */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-8xl font-bold text-foreground mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-display font-extrabold text-foreground mb-6 leading-[1.1]"
           >
-            Mahin Ahmad.
+            I Build Fast, Reliable Websites That <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-400 to-gray-600">Drive Business Growth</span>
           </motion.h1>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-muted mb-8"
-          >
-            Designing intelligent systems.
-          </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-muted max-w-xl mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 max-w-2xl mb-12 leading-relaxed"
           >
-            I'm a CSE student and full-stack developer dedicated to building high-performance digital solutions and exploring the future of AI-integrated web architecture.
+            I combine a deep understanding of business strategy with elite technical expertise. Transforming your online presence into a high-converting, ultra-reliable platform built to establish instant authority in the Bangladeshi market.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -83,65 +77,103 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap gap-6"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16"
           >
-            <a href="#projects" className="bg-primary text-white hover:bg-primary/90 px-8 py-4 rounded-full font-semibold transition-all duration-300 shadow-xl shadow-primary/20">
-              View Portfolio
+            <a href="#projects" className="bg-primary text-white text-center hover:bg-primary-dark px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(240,0,0,0.3)] hover:shadow-[0_0_50px_rgba(240,0,0,0.5)] hover:-translate-y-1">
+              View Projects
             </a>
-            <a href="#contact" className="liquid-glass border border-white/10 text-foreground hover:bg-white/5 px-8 py-4 rounded-full font-semibold transition-all duration-300">
-              Get in Touch
+            <a href="#contact" className="liquid-glass border border-white/10 text-center text-foreground hover:bg-white/5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 hover:-translate-y-1">
+              Book a Call
             </a>
           </motion.div>
 
-          {/* Social Links — visible on all devices */}
+          {/* Trust Indicators */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.55 }}
-            className="flex items-center gap-3 mt-8"
+            className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-6 gap-y-4 pt-8 border-t border-white/10"
           >
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className={`p-3 rounded-full liquid-glass border border-white/10 text-muted transition-all duration-300 hover:scale-110 hover:shadow-lg ${social.hoverClass}`}
-              >
-                {social.icon}
-              </a>
-            ))}
-            <span className="h-px w-10 bg-white/10 ml-1 hidden sm:block" />
-            <span className="text-xs text-muted/60 font-mono tracking-widest hidden sm:block">Follow me</span>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              <span className="text-xs sm:text-sm font-mono text-gray-400 uppercase tracking-wider">Real Projects</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              <span className="text-xs sm:text-sm font-mono text-gray-400 uppercase tracking-wider">SEO Optimized</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              <span className="text-xs sm:text-sm font-mono text-gray-400 uppercase tracking-wider">Responsive</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              <span className="text-xs sm:text-sm font-mono text-gray-400 uppercase tracking-wider">Fast Loading</span>
+            </div>
           </motion.div>
         </div>
 
-        {/* Image Content */}
+        {/* Animated Website Mockup Preview (Two Mockups) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="order-1 lg:order-2 flex justify-center lg:justify-end"
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="order-1 lg:order-2 mt-8 lg:mt-0 flex justify-center lg:justify-end relative w-full"
         >
-          <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[450px] lg:h-[450px] group">
-            {/* Ambient Glow */}
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full -z-10 animate-pulse"></div>
-
-            {/* Image Container */}
-            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-white/5 z-10 liquid-glass p-2">
-              <div className="w-full h-full rounded-2xl overflow-hidden grayscale contrast-125 transition-all duration-700 group-hover:grayscale-0 group-hover:contrast-100">
-                <img
-                  src="/profile.jpg"
-                  alt="Mahin Ahmad - Portfolio Photo"
-                  className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-                />
+          <div className="absolute inset-0 bg-primary/20 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+          
+          <div className="relative w-full max-w-[300px] sm:max-w-md md:max-w-lg mx-auto aspect-square sm:aspect-[4/3] perspective-[1000px]">
+            <motion.div 
+              animate={{ 
+                rotateY: [-5, 5, -5],
+                rotateX: [2, -2, 2],
+                y: [0, -10, 0]
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="w-full h-full relative"
+            >
+              {/* Decorative Background Elements */}
+              <div className="absolute top-[10%] right-[10%] w-32 h-32 border border-white/5 rounded-full animate-[spin_15s_linear_infinite] z-0"></div>
+              <div className="absolute top-[20%] right-[20%] w-16 h-16 border border-primary/10 rounded-full animate-[spin_10s_linear_infinite_reverse] z-0"></div>
+              
+              <div className="absolute -top-4 sm:-top-6 right-4 sm:right-10 flex items-center gap-2 bg-black/60 border border-white/10 backdrop-blur-md px-3 py-1.5 rounded-full z-10 hover:bg-black transition-colors animate-[bounce_3s_ease-in-out_infinite]">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#22c55e]"></span>
+                <span className="text-[10px] sm:text-xs font-mono text-gray-300">99.9% Uptime</span>
               </div>
-            </div>
+              
+              <div className="absolute bottom-4 sm:bottom-10 -right-2 sm:-right-6 flex items-center gap-2 bg-primary/10 border border-primary/20 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full z-30 hover:bg-primary/20 transition-colors animate-[bounce_4s_ease-in-out_infinite_reverse]">
+                <span className="text-[10px] sm:text-xs font-mono text-primary font-bold tracking-wider">+120% Conversion</span>
+              </div>
 
-            {/* Decorative glass elements */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 liquid-glass rounded-2xl -z-10 border border-white/10 hidden sm:block"></div>
-            <div className="absolute -bottom-10 -left-10 w-32 h-32 liquid-glass rounded-full -z-10 border border-white/10 hidden sm:block"></div>
+              {/* Back Mockup (Glamora) */}
+              <a 
+                href="https://glamora-beige.vercel.app/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="absolute top-4 sm:top-0 left-0 w-[80%] sm:w-[75%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/5 liquid-glass p-1 sm:p-2 z-10 opacity-80 blur-[1px] hover:blur-none hover:z-40 hover:opacity-100 hover:scale-105 active:z-40 active:scale-105 transition-all duration-500 cursor-pointer"
+              >
+                <img
+                  src="/glamora_preview.png"
+                  alt="Glamora Project Preview"
+                  className="w-full h-full object-cover object-top rounded-lg sm:rounded-xl pointer-events-none"
+                  onError={(e) => { e.target.src = "/project_hero_apps.png" }}
+                />
+              </a>
+
+              {/* Front Mockup (HenleyZone) */}
+              <a 
+                href="https://henleyzone.com" 
+                target="_blank" 
+                rel="noreferrer"
+                className="absolute bottom-4 sm:bottom-0 right-0 w-[85%] sm:w-[80%] aspect-video rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10 liquid-glass p-1 sm:p-2 z-20 hover:scale-105 hover:z-40 active:scale-105 transition-all duration-500 cursor-pointer"
+              >
+                <img
+                  src="/henley_zone_preview.png"
+                  alt="Henley Zone Preview"
+                  className="w-full h-full object-cover object-top rounded-lg sm:rounded-xl pointer-events-none"
+                />
+              </a>
+            </motion.div>
           </div>
         </motion.div>
 

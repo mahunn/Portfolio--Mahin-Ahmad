@@ -4,10 +4,29 @@ import { motion } from 'framer-motion';
 /* ─── Real brand SVG paths (SimpleIcons / official) ─── */
 const techs = [
   {
+    name: 'Next.js',
+    color: '#FFFFFF',
+    bg: '#000000',
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="currentColor">
+        <path d="M12.001 0a12 12 0 1012 12 12 12 0 00-12-12zM8.38 6.5h2.464v7.054l6.096-7.054h2.457L12.56 14.417v3.083h-2.464v-6.32L4.654 17.5h-2.46L8.38 9.213V6.5z"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'TypeScript',
+    color: '#3178C6',
+    bg: '#00081a',
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="#3178C6">
+        <path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0H1.125zM13.434 11.238l-2.613-1.637c-.314-.197-.487-.308-.487-.585 0-.256.241-.453.642-.453.513 0 .973.197 1.303.496l1.096-1.579a3.86 3.86 0 00-2.584-.881c-1.652 0-2.923.868-2.923 2.457 0 1.395 1.053 2.016 2.372 2.805l1.621.974c.48.29.742.487.742.875 0 .428-.42.605-.933.605-.697 0-1.341-.296-1.742-.644l-1.189 1.637a4.341 4.341 0 002.99 1.072c1.761 0 3.05-.888 3.05-2.588 0-1.395-1.071-2.032-2.355-2.82l-.99-.533zm6.549 1.132v5.717h-2.13v-5.717h-2.062v-1.89h6.254v1.89h-2.062z"/>
+      </svg>
+    ),
+  },
+  {
     name: 'JavaScript',
     color: '#F7DF1E',
     bg: '#1a1a00',
-    // JS yellow square logo
     svg: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="#F7DF1E">
         <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
@@ -48,23 +67,7 @@ const techs = [
         <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
       </svg>
     ),
-  },
-  {
-    name: 'C++',
-    color: '#00599C',
-    bg: '#00091a',
-    svg: (
-      <img src="/C++-logo.svg" alt="C++" className="w-8 h-8" />
-    ),
-  },
-  {
-    name: 'Python',
-    color: '#3776AB',
-    bg: '#00080f',
-    svg: (
-      <img src="/Python-logo.svg" alt="Python" className="w-8 h-8" />
-    ),
-  },
+  }
 ];
 
 const About = () => {
@@ -114,10 +117,10 @@ const About = () => {
             <div className="lg:col-span-7 space-y-6 md:space-y-8">
               <div className="space-y-4 md:space-y-6 text-muted text-sm md:text-lg leading-relaxed">
                 <p>
-                  Hi, I'm <span className="text-foreground font-semibold">Mahin Ahmad</span>. I'm a CSE student and full-stack developer dedicated to building high-performance digital solutions.
+                  Hi, I'm <span className="text-foreground font-semibold">Mahin Ahmad</span>. I am a professional web developer and digital strategist specializing in high-performance websites for modern businesses.
                 </p>
                 <p>
-                  I focus on clean architecture and love exploring how AI can push the boundaries of modern web experiences. My approach combines technical rigor with a keen eye for minimalist design.
+                  I approach web development with a strict business-first mindset. A great website is more than just code—it's a powerful tool for generating leads, building trust, and driving revenue. I engineer scalable, ultra-fast, and deeply reliable platforms that solve real business problems, seamlessly blending technical excellence with premium aesthetic design.
                 </p>
               </div>
             </div>

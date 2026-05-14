@@ -3,14 +3,14 @@
 
 :root {
   --color-primary: #f00000;
-  --color-primary-dark: #cc0000;
-  --color-background: #000000;
+  --color-primary-dark: #b30000;
+  --color-background: #030303;
   --color-surface: #0a0a0a;
-  --color-surface-hover: #141414;
+  --color-surface-hover: #121212;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #9ca3af;
-  --font-sans: "Tenor Sans", "system-ui", "sans-serif";
-  --font-display: "Tenor Sans", "system-ui", "sans-serif";
+  --color-text-secondary: #a1a1aa;
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-display: "Outfit", "system-ui", "sans-serif";
 }
 
 .light {
@@ -37,12 +37,15 @@
 
 @layer base {
   body {
-    @apply bg-background text-gray-200 font-sans antialiased selection:bg-primary selection:text-white;
+    @apply bg-background text-gray-200 font-sans antialiased selection:bg-primary/30 selection:text-white overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 0%, rgba(240, 0, 0, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 0% 100%, rgba(240, 0, 0, 0.03) 0%, transparent 50%);
     transition: background-color 0.5s ease, color 0.5s ease;
   }
   
   .light body {
     color: #1a1a1a;
+    background-image: none;
   }
 
   h1, h2, h3, h4, h5, h6 {

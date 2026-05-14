@@ -1,134 +1,100 @@
 import React from 'react';
-import ProjectCard from './ProjectCard';
 import { ExternalLink, ArrowUpRight, Star } from 'lucide-react';
 
 const Projects = () => {
-  const projectsData = [
+  const showcaseProjects = [
     {
-      title: "Hero Apps Showcase",
-      description: "A modern web application demonstrating interactive UI components, dynamic data handling, and robust state management, built with high-performance web technologies.",
-      link: "https://strong-malasada-b3ddca.netlify.app/",
-      tags: ["React", "Vite", "Frontend Architecture"],
-      image: "/project_hero_apps.png"
+      title: "Henley Zone",
+      overview: "A premium full-stack e-commerce platform built for high performance and seamless user experience.",
+      problem: "The client needed a modern, scalable e-commerce solution with real-time inventory management and secure authentication, as their previous platform was slow and prone to crashes during high-traffic periods.",
+      solution: "Engineered a custom Next.js application backed by Supabase. Implemented SSR for lightning-fast page loads, integrated secure PostgreSQL data management, and designed a highly intuitive UI that increased conversion rates.",
+      tech: ["Next.js", "Supabase", "TypeScript", "Tailwind CSS"],
+      link: "https://henleyzone.com",
+      image: "/henley_zone_preview.png"
     },
     {
-      title: "Emergency Service Directory BD",
-      description: "A streamlined web application providing quick access to essential government emergency services in Bangladesh. Features an intuitive interface for navigating emergency contacts and viewing call history.",
-      link: "https://mahunn.github.io/Emergency-Hotline-BD/",
-      tags: ["HTML", "CSS", "JavaScript"],
-      image: "/project_emergency_bd.png"
-    },
-    {
-      title: "CS Ticket System",
-      description: "A comprehensive customer support ticket management system designed to streamline issue tracking, support requests, and user resolutions effectively for support teams.",
-      link: "https://comfy-treacle-75e5ff.netlify.app/",
-      tags: ["React", "Vite", "Tailwind CSS", "State Management"],
-      image: "/project_cs_ticket.png"
+      title: "Glamora",
+      overview: "A high-end fashion boutique website focused on stunning visuals and seamless navigation.",
+      problem: "The boutique was losing online sales due to an outdated, non-responsive website that didn't reflect the premium nature of their brand.",
+      solution: "Designed and developed a visually striking, mobile-first web experience using React and Framer Motion. Focused on smooth scroll animations, high-quality image optimization, and a refined aesthetic to match their brand identity.",
+      tech: ["React", "Framer Motion", "Tailwind CSS", "Vite"],
+      link: "https://glamora-beige.vercel.app/",
+      image: "/glamora_preview.png"
     }
   ];
 
-  const flagshipTags = ["Next.js", "Supabase", "TypeScript", "PostgreSQL", "Tailwind CSS", "Vercel", "Auth", "Full-Stack"];
-
   return (
-    <section id="projects" className="min-h-screen py-24 flex flex-col justify-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-12 flex items-center gap-4">
-        <span className="text-foreground/50 font-mono text-xl">02.</span> Projects Showcase
-        <div className="h-px bg-white/10 flex-grow max-w-xs ml-4"></div>
+    <section id="projects" className="py-32 flex flex-col justify-center">
+      <h2 className="text-4xl md:text-5xl font-bold font-display mb-16 flex items-center gap-6">
+        <span className="text-primary font-mono text-lg uppercase tracking-widest bg-primary/10 px-4 py-2 rounded-full">Featured Work</span>
+        <div className="h-px bg-white/10 flex-grow"></div>
       </h2>
 
-      {/* ── Flagship Project ── */}
-      <a
-        href="https://henleyzone.com"
-        target="_blank"
-        rel="noreferrer"
-        className="group block mb-16 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-        aria-label="View Henley Zone live project"
-      >
-        <div className="relative rounded-3xl overflow-hidden liquid-glass border border-white/10 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_30px_80px_rgba(240,0,0,0.2)] hover:-translate-y-1">
-
-          {/* Animated top accent line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20" />
-
-          <div className="flex flex-col lg:flex-row">
-
-            {/* Left: Screenshot / Visual */}
-            <div className="relative lg:w-[55%] h-72 lg:h-auto bg-black/60 overflow-hidden flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/5">
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-black/40 z-10 pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 lg:hidden pointer-events-none" />
-
-              {/* Real screenshot */}
-              <img
-                src="/henley_zone_preview.png"
-                alt="Henley Zone - Full-Stack E-Commerce Platform"
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* Shine sweep on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out z-10 pointer-events-none" />
+      <div className="space-y-32">
+        {showcaseProjects.map((project, idx) => (
+          <div key={idx} className="group flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+            
+            {/* Visual Side */}
+            <div className={`w-full lg:w-3/5 ${idx % 2 !== 0 ? 'lg:order-2' : ''}`}>
+              <a href={project.link} target="_blank" rel="noreferrer" className="block relative rounded-3xl overflow-hidden liquid-glass border border-white/10 hover:border-primary/50 transition-all duration-700 hover:shadow-[0_0_50px_rgba(240,0,0,0.2)]">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 pointer-events-none" />
+                <div className="aspect-[16/10] bg-black/60 overflow-hidden relative">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-110"
+                  />
+                  {/* Subtle hover sweep */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out z-20 pointer-events-none" />
+                </div>
+              </a>
             </div>
 
-            {/* Right: Info */}
-            <div className="lg:w-[45%] p-8 lg:p-12 flex flex-col justify-center">
-              {/* Badge */}
-              <div className="flex items-center gap-2 mb-5">
-                <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-primary border border-primary/30 bg-primary/10 px-3 py-1 rounded-full">
-                  <Star size={10} fill="currentColor" /> Flagship Project
-                </span>
-                <span className="text-[10px] font-mono text-gray-500 tracking-widest uppercase">Full-Stack · 2025</span>
+            {/* Info Side */}
+            <div className={`w-full lg:w-2/5 ${idx % 2 !== 0 ? 'lg:order-1' : ''}`}>
+              <div className="flex items-center gap-2 mb-4">
+                <Star size={14} className="text-primary" fill="currentColor" />
+                <span className="text-xs font-mono text-gray-500 tracking-widest uppercase">Client Project</span>
               </div>
-
-              <h3 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                Henley Zone
+              
+              <h3 className="text-4xl lg:text-5xl font-bold font-display text-white mb-6 group-hover:text-primary transition-colors duration-300">
+                {project.title}
               </h3>
 
-              <p className="text-gray-400 text-base leading-relaxed mb-8">
-                A full-stack web platform built with <span className="text-gray-200 font-medium">Next.js 14</span> and <span className="text-gray-200 font-medium">Supabase</span>, featuring real-time data, authentication flows, PostgreSQL database management, and a polished TypeScript codebase — deployed on Vercel for seamless performance.
-              </p>
+              <div className="space-y-6 mb-8">
+                <div>
+                  <h4 className="text-white font-mono text-sm uppercase tracking-wider mb-2">Overview</h4>
+                  <p className="text-gray-400 leading-relaxed">{project.overview}</p>
+                </div>
+                <div className="pl-4 border-l-2 border-red-500/30">
+                  <h4 className="text-white font-mono text-sm uppercase tracking-wider mb-2">The Problem</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{project.problem}</p>
+                </div>
+                <div className="pl-4 border-l-2 border-green-500/30">
+                  <h4 className="text-white font-mono text-sm uppercase tracking-wider mb-2">The Solution</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">{project.solution}</p>
+                </div>
+              </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {flagshipTags.map((tag, i) => (
-                  <span key={i} className="text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full">
-                    {tag}
+              <div className="flex flex-wrap gap-2 mb-10">
+                {project.tech.map((t, i) => (
+                  <span key={i} className="text-xs font-mono text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">
+                    {t}
                   </span>
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-primary/90 group-hover:bg-primary px-5 py-2.5 rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(240,0,0,0.3)] group-hover:shadow-[0_0_30px_rgba(240,0,0,0.5)]">
-                  <ExternalLink size={15} /> View Live Site
-                </span>
-                <span className="text-gray-500 text-sm font-mono">henleyzone.com</span>
-              </div>
-
-              {/* Animated arrow */}
-              <div className="mt-6 flex items-center gap-2 text-gray-600 text-xs group-hover:text-primary/60 transition-colors duration-300">
-                <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-                <span className="font-mono tracking-wider uppercase text-[10px]">Click anywhere to open</span>
-              </div>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-display font-bold hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(240,0,0,0.4)] hover:-translate-y-1"
+              >
+                View Live Site <ArrowUpRight size={18} />
+              </a>
             </div>
+
           </div>
-        </div>
-      </a>
-
-      {/* ── Other Projects ── */}
-      <h3 className="text-xl font-bold text-gray-400 mb-8 flex items-center gap-4 font-mono">
-        <span className="text-gray-600">— </span> Other Projects
-        <div className="h-px bg-white/5 flex-grow max-w-xs ml-2"></div>
-      </h3>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            description={project.description}
-            link={project.link}
-            tags={project.tags}
-            image={project.image}
-          />
         ))}
       </div>
     </section>
