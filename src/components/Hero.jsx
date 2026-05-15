@@ -36,7 +36,7 @@ const socialLinks = [
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-36 lg:pt-32 pb-16 overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center pt-24 md:pt-36 lg:pt-32 pb-12 md:pb-16 overflow-hidden">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Text Content */}
@@ -45,16 +45,16 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-4 mb-6"
+            className="flex items-center gap-4 mb-8"
           >
-            <img src="/profile.jpg" alt="Mahin Ahmad" className="w-12 h-12 rounded-full border border-primary/50 object-cover" />
-            <p className="text-primary font-mono text-sm md:text-base tracking-[0.2em] uppercase font-bold flex items-center gap-4">
-              <span className="w-12 h-[2px] bg-primary hidden sm:block"></span> 
-              <span className="flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+            <img src="/profile.jpg" alt="Mahin Ahmad" className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-primary/50 object-cover shadow-[0_0_30px_rgba(240,0,0,0.2)]" />
+            <div className="flex flex-col gap-1">
+              <p className="text-primary font-mono text-xs md:text-sm tracking-[0.2em] uppercase font-bold flex items-center gap-3">
+                <span className="w-8 h-[2px] bg-primary hidden sm:block"></span> 
                 Web Developer
-              </span>
-            </p>
+              </p>
+              <h2 className="text-xl md:text-2xl font-bold text-white font-display">Mahin Ahmad</h2>
+            </div>
           </motion.div>
 
           <motion.h1
@@ -76,19 +76,38 @@ const Hero = () => {
             I combine a deep understanding of business strategy with elite technical expertise. Transforming your online presence into a high-converting, ultra-reliable platform built to establish instant authority in the Bangladeshi market.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons & Socials */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-16"
+            className="mb-16"
           >
-            <a href="#projects" className="bg-primary text-white text-center hover:bg-primary-dark px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(240,0,0,0.3)] hover:shadow-[0_0_50px_rgba(240,0,0,0.5)] hover:-translate-y-1">
-              View Projects
-            </a>
-            <a href="https://wa.me/8801828034555?text=Hi%20Mahin%2C%20are%20you%20available%20right%20now%20to%20talk%3F" className="liquid-glass border border-white/10 text-center text-foreground hover:bg-white/5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 hover:-translate-y-1">
-              Book a Call
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-8">
+              <a href="#projects" className="bg-primary text-white text-center hover:bg-primary-dark px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 shadow-[0_0_30px_rgba(240,0,0,0.3)] hover:shadow-[0_0_50px_rgba(240,0,0,0.5)] hover:-translate-y-1">
+                View Projects
+              </a>
+              <a href="https://wa.me/8801828034555?text=Hi%20Mahin%2C%20are%20you%20available%20right%20now%20to%20talk%3F" className="liquid-glass border border-white/10 text-center text-foreground hover:bg-white/5 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-display font-bold text-lg transition-all duration-300 hover:-translate-y-1">
+                Book a Call
+              </a>
+            </div>
+
+            {/* Social Links Integration */}
+            <div className="flex items-center gap-4">
+              <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mr-2">Follow Me</span>
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`w-10 h-10 rounded-full flex items-center justify-center border border-white/10 liquid-glass text-gray-400 transition-all duration-300 ${link.hoverClass}`}
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </motion.div>
 
           {/* Trust Indicators */}

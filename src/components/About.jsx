@@ -66,7 +66,7 @@ const techs = [
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen py-16 md:py-24 flex items-center relative overflow-hidden">
+    <section id="about" className="min-h-screen py-12 md:py-24 flex items-center relative overflow-hidden">
       {/* Background Particles */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (

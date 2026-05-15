@@ -24,13 +24,13 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-32 flex flex-col justify-center">
+    <section id="projects" className="py-16 md:py-32 flex flex-col justify-center">
       <h2 className="text-4xl md:text-5xl font-bold font-display mb-16 flex items-center gap-6">
         <span className="text-primary font-mono text-lg uppercase tracking-widest bg-primary/10 px-4 py-2 rounded-full">Featured Work</span>
         <div className="h-px bg-white/10 flex-grow"></div>
       </h2>
 
-      <div className="space-y-32">
+      <div className="space-y-20 md:space-y-32">
         {showcaseProjects.map((project, idx) => (
           <div key={idx} className="group flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
             

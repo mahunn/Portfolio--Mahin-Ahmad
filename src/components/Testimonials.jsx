@@ -18,7 +18,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-32 relative">
+    <section className="py-16 md:py-32 relative">
       <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
       <div className="text-center mb-16 relative z-10">

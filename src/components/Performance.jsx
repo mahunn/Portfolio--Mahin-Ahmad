@@ -11,7 +11,7 @@ const Performance = () => {
   ];
 
   return (
-    <section className="py-32 relative border-y border-white/5 bg-black">
+    <section className="py-16 md:py-32 relative border-y border-white/5 bg-black">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
           <motion.p 

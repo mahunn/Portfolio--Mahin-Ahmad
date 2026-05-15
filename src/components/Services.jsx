@@ -163,7 +163,7 @@ const Services = () => {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-12 md:py-24 relative">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
 
       {/* ── MOBILE ── */}

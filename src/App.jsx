@@ -6,6 +6,7 @@ import Projects from './components/Projects';
 import Services from './components/Services';
 import Performance from './components/Performance';
 import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
 import CTA from './components/CTA';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Performance />
         <Testimonials />
         <About />
+        <Contact />
         <CTA />
       </main>
       <footer className="w-full py-6 px-6 sm:px-12 md:px-24 border-t border-white/5 mt-12">

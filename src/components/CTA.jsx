@@ -4,19 +4,19 @@ import { ArrowRight } from 'lucide-react';
 
 const CTA = () => {
   return (
-    <section id="cta" className="py-32 relative overflow-hidden">
+    <section id="cta" className="py-16 md:py-32 relative overflow-hidden flex flex-col justify-center min-h-[60vh]">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl h-64 bg-primary/20 blur-[150px] rounded-full -z-10 pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-primary/20 blur-[150px] rounded-full -z-10 pointer-events-none"></div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10 liquid-glass p-12 md:p-20 rounded-3xl border border-white/10 border-t-primary/30">
+      <div className="max-w-4xl mx-auto text-center w-full relative z-10 liquid-glass p-8 md:p-20 rounded-[2.5rem] border border-white/10 border-t-primary/30 shadow-2xl">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-bold font-display leading-tight mb-6"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6"
         >
           Ready to Elevate Your <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">Business Sales?</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-white">Business?</span>
         </motion.h2>
         
         <motion.p 
@@ -42,12 +42,12 @@ const CTA = () => {
           >
             Book a Strategy Call <ArrowRight className="w-5 h-5" />
           </a>
-          <a 
-            href="mailto:maahin.ahmaad@gmail.com" 
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 liquid-glass border border-white/10 text-foreground px-10 py-5 rounded-full font-display font-bold text-lg hover:bg-white/5 transition-all duration-300 hover:-translate-y-1"
+          <button 
+            onClick={() => window.location.href = 'mailto:maahin.ahmaad@gmail.com'}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 liquid-glass border border-white/10 text-foreground px-10 py-5 rounded-full font-display font-bold text-lg hover:bg-white/5 transition-all duration-300 hover:-translate-y-1 cursor-pointer"
           >
             Send an Email
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
